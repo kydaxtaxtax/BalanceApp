@@ -45,7 +45,7 @@ class OperationService
                 return $operation;
             });
         } catch (\Exception $e) {
-            return $this->operationRepository->createOperation(null, 'Error while processing the operation: ' . $e->getMessage(), $amount, $operationType, Operation::STATUS_FAILED);
+            return $this->operationRepository->createOperation($balance->id, 'Error while processing the operation: ' . $e->getMessage(), $amount, $operationType, Operation::STATUS_FAILED);
         }
     }
 }
